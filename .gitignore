@@ -7,9 +7,12 @@
 /bazel-out
 
 # Node
-/node_modules
+**/node_modules
 npm-debug.log
 yarn-error.log
+
+#angular
+.angular/
 
 # IDEs and editors
 .idea/
@@ -19,6 +22,7 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+
 
 # Visual Studio Code
 .vscode/*
