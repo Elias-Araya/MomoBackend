@@ -7,15 +7,6 @@ import { IntranetComponent } from './intranet/intranet.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
-const routes : Routes = [
-  {
-    path:'', component: AppComponent
-  },
-  {
-    path:'login', component: LoginComponent
-  }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +17,6 @@ const routes : Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
