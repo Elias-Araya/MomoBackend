@@ -7,12 +7,13 @@ import { IntranetComponent } from './intranet/intranet.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     IntranetComponent,
-    LoginComponent,
-    HomeComponent
+   LoginComponent,
+   HomeComponent
   ],
   imports: [
     BrowserModule,
