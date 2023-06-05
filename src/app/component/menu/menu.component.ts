@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as Aos from 'aos';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
 
