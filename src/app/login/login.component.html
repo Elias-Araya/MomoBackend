@@ -13,16 +13,23 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form>
-        <h3>Login Here</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h3>Momotaro</h3>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username">
+        <label for="username">Usuario</label>
+        <input formControlName="email" [class.is-invalid]="f.email.errors && f.email.touched" type="email" placeholder="Correo electronico" id="email">
+        <div class="invalid-feedback">
+            El campo email es obligatorio
+        </div>
+        <label for="password">Contraseña</label>
+        <input formControlName="password" [class.is-invalid]="f.password.errors && f.password.touched" type="password" placeholder="Contraseña" id="password">
+        <div class="invalid-feedback">
+            El campo contraseña es obligatorio
+        </div>
 
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password">
+        <button type="submit">Ingresar</button>
 
-        <button>Log In</button>
+        <p>¿No eres miembro? Registrarse</p>
     </form>
 </body>
 </html>

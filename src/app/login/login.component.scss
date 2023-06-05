@@ -55,7 +55,7 @@ form{
 }
 form *{
     font-family: 'Poppins',sans-serif;
-    color: #ffffff;
+    /* color: #ffffff; */
     letter-spacing: 0.5px;
     outline: none;
     border: none;
@@ -119,4 +119,9 @@ button{
 }
 .social i{
   margin-right: 4px;
+}
+
+p{
+    margin-top: 22px;
+    cursor: pointer;
 }
