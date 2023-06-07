@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
 
@@ -14,7 +15,7 @@ export class MenuComponent implements OnInit {
 
   constructor(private readonly productSvc: ProductService) {}
 
-  setFilter(filter: string): void {
+  setFilter(filter: string) {
     this.currentFilter = filter;
   }
 
@@ -29,5 +30,9 @@ export class MenuComponent implements OnInit {
       this.productos = productos.data;
       console.log(productos);
     });
+  }
+
+  addToCart(product: Product) {
+    return this.productSvc.addProduct(product);
   }
 }

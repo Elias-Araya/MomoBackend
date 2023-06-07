@@ -25,7 +25,30 @@
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
        </nav>
-       <a routerLink="/login" class="book-a-table-btn scrollto d-none d-lg-flex">Iniciar Sesion</a>
+       <a routerLink="/login" class="book-a-table-btn scrollto d-none d-lg-flex" *ngIf="(userLoggedIn | async) === false">Iniciar Sesion</a>
+       <div class="dropdown" *ngIf="(userLoggedIn | async) === true">
+         <button class="btn btn-light " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           {{userDetails?.nombre_usuario}} 
+         </button>
+         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+           <a class="dropdown-item" href="#">Mis Reservas</a>
+           <a class="dropdown-item" href="#">Mis pedidos</a>
+           <div class="dropdown-divider"></div>
+           <a class="dropdown-item" (click)="logOut()" href="#">Cerrar Sesion</a>
+         </div>
+       </div>
+       
+       <div class="navbar-cart" (click)="onToggleCart()" >
+         <div class="navbar-cart-items" *ngIf="(myCart$ | async)?.length">
+           <p>{{ (myCart$ | async)?.length }}</p>
+         </div>
+         <i class="fa-solid fa-cart-shopping"></i>
+       </div>
     </div>
+    
  </header>
+ 
 </nav>
+<div class="cart cartShow" [ngClass]="{cartShow:viewCart}">
+   <app-cart></app-cart>
+</div>

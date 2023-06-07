@@ -1,0 +1,46 @@
+<section id="book-a-table" class="book-a-table">
+    <div class="container" data-aos="fade-up">
+       <div class="section-title">
+          <h2>Reservas</h2>
+          <p>Formulario de reserva</p>
+       </div>
+       <form [formGroup]="reservaForm" (ngSubmit)="onSubmit()" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+             <div class="col-lg-4 col-md-6 form-group" *ngIf="(userLoggedIn | async) === false">
+                <input type="text" name="nombre" class="form-control" id="name" formControlName="nombre" placeholder="Nombre y Apellido"  required>
+                <div class="validate"></div>
+             </div>
+             <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" *ngIf="(userLoggedIn | async) === false">
+                <input type="email" class="form-control" name="email" id="email" formControlName="email" placeholder="Email" required>
+                <div class="validate"></div>
+             </div>
+             <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0" *ngIf="(userLoggedIn | async) === false">
+                <input type="number" class="form-control" name="telefono" id="phone" formControlName="telefono" placeholder="Telefono"  required>
+                <div class="validate"></div>
+             </div>
+             <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input type="date" name="fecha" class="form-control" id="date" formControlName="fecha" placeholder="Fecha"  required>
+                <div class="validate"></div>
+             </div>
+             <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input type="number" class="form-control" name="cantidad" id="people" formControlName="cantidad" placeholder="Cantidad de Personas"  required>
+                <div class="validate"></div>
+             </div>
+             <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input type="time" class="form-control" name="hora" id="time" formControlName="hora" placeholder="Hora de llegada" required>
+                <div class="validate"></div>
+             </div>
+          </div>
+          <div class="form-group mt-3">
+             <textarea class="form-control" name="mensaje" rows="5" formControlName="mensaje" placeholder="Mensaje"></textarea>
+             <div class="validate"></div>
+          </div>
+          <div class="mb-3">
+             <div class="loading">Cargando</div>
+             <div class="error-message"></div>
+             <div class="sent-message">Tu reserva fue agendada. Gracias!</div>
+          </div>
+          <div class="text-center"><button type="submit">Reservar</button></div>
+       </form>
+    </div>
+ </section>

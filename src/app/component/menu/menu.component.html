@@ -19,7 +19,7 @@
           <div class="col-lg-6 menu-item filter-{{producto.categoria}}" *ngFor="let producto of productos | filterP:currentFilter:'categoria'">
             <div *ngIf="currentFilter === '' || currentFilter === producto.categoria">
              <img [src]="'assets/img/menu/' + producto.sku + '.jpg' || 'assets/img/menu/default.jpg'"  class="menu-img" alt="{{ producto.nombre}}">
-             <div class="menu-content"> <a href="#">{{producto.nombre}}</a><span>${{producto.precio}}</span></div>
+             <div class="menu-content"> <a (click)="addToCart(producto)">{{producto.nombre}}</a><span>${{producto.precio}}</span></div>
              <div class="menu-ingredients"> {{producto.descripcion}}</div>
             </div>
           </div>

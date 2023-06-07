@@ -9,10 +9,13 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './Core/auth-service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { JwtInterceptor } from './Core/jwt.interceptor';
 import { FilterPPipe } from './shared/filter-p.pipe';
+import { CartComponent } from './component/cart/cart.component';
+import { DatePipe } from '@angular/common';
+import { ReservaComponent } from './component/reserva/reserva.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,8 @@ import { FilterPPipe } from './shared/filter-p.pipe';
     NavbarComponent,
     MenuComponent,
     FilterPPipe,
+    CartComponent,
+    ReservaComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,7 @@ import { FilterPPipe } from './shared/filter-p.pipe';
       useClass: JwtInterceptor,
       multi: true,
     },
+    DatePipe,
   ],
   bootstrap: [AppComponent],
 })
