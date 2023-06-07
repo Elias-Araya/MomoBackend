@@ -16,6 +16,8 @@ import { FilterPPipe } from './shared/filter-p.pipe';
 import { CartComponent } from './component/cart/cart.component';
 import { DatePipe } from '@angular/common';
 import { ReservaComponent } from './component/reserva/reserva.component';
+import { DashhomeComponent } from './component/dashboard/dashhome/dashhome.component';
+import { DashnavbarComponent } from './component/dashboard/dashnavbar/dashnavbar.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { ReservaComponent } from './component/reserva/reserva.component';
     FilterPPipe,
     CartComponent,
     ReservaComponent,
+    DashhomeComponent,
+    DashnavbarComponent,
   ],
   imports: [
     BrowserModule,
