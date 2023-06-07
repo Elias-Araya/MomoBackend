@@ -31,7 +31,9 @@ export class ReservaComponent implements OnInit {
     if (this.userLoggedIn) {
       let fecha = body.fecha.split('-');
       body.fecha = [fecha[2], fecha[1], fecha[0]].join('-');
-      body.id_usuario = parseInt(localStorage.getItem('id_usuario')!);
+      body.id_usuario = parseInt(
+        JSON.parse(localStorage.getItem('user') || '{}').id_usuario || '0'
+      );
       delete body.nombre;
       delete body.email;
       delete body.telefono;

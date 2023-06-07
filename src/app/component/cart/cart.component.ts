@@ -61,7 +61,9 @@ export class CartComponent implements OnInit {
     this.myCart$.pipe(take(1)).subscribe((cart) => {
       console.log('CART ', cart);
       const pedido: Pedido = {
-        id_usuario: parseInt(localStorage.getItem('id_usuario') || '0'), // Reemplaza esto con el ID del usuario
+        id_usuario: parseInt(
+          JSON.parse(localStorage.getItem('user') || '{}').id_usuario || '0'
+        ),
         fecha: this.datePipe.transform(
           new Date().toISOString(),
           'dd/MM/yyyy HH:mm'
