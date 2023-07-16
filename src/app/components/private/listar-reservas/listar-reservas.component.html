@@ -1,0 +1,80 @@
+
+<div class="container-fluid ">
+    <div class="row">
+      <div class="col-12 col-md-2 componente-clase">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light col-12" style="height: 100%;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+              <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+              <span class="fs-4">Intranet</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/listaReservas">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                  Reservas
+                </a>
+              </li>
+              <li>
+                <a  class="nav-link link-dark">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                  Listar Pedidos
+                </a>
+              </li>
+              <li>
+                <a class="nav-link link-dark">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                  Orders
+                </a>
+              </li>
+              <li>
+                <a class="nav-link link-dark">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+                  Products
+                </a>
+              </li>
+              <li>
+                <a class="nav-link link-dark">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                  Customers
+                </a>
+              </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+              <a class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>{{userDetails?.nombre_usuario}}</strong>
+              </a>
+              <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                <li><a class="dropdown-item" routerLink="/">Menu</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" >Cerrar sesion</a></li>
+              </ul>
+            </div>
+        </div>
+        
+      </div>
+      <div class="col-12 col-md-10">
+        <h2 style="margin-bottom: 10px;">Título de la tabla</h2>
+        <p style="margin-bottom: 20px;">Subtítulo de la tabla</p>
+        <button class="btn btn-primary" (click)="agregarReserva()">Reservar</button>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let res of reservas;index as i">
+                    <td><span>{{res.fecha}}</span></td>
+                    <td>{{res.hora}}</td>
+                    <td>{{res.estado}}</td>
+                </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>

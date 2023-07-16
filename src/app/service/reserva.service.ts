@@ -5,6 +5,9 @@ import { environment } from 'src/environments/environment';
 import { ReservaGeneral } from '../model/reserva-general';
 import { Reserva } from '../model/reserva';
 
+export interface ReservaResponse {
+  data: Reserva[];
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -20,5 +23,11 @@ export class ReservaService {
   }
   postReserva(reserva: Reserva): Observable<Reserva> {
     return this.http.post<Reserva>(`${this.url}/crearReserva`, reserva);
+  }
+
+  getReservas(id: any): Observable<ReservaResponse> {
+    return this.http.get<ReservaResponse>(
+      `${this.url}/listReservaByIdAll/${id}`
+    );
   }
 }

@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
 
   constructor(private readonly productSvc: ProductService) {}
 
-  setFilter(filter: string) {
+  setFilter(filter: string): void {
     this.currentFilter = filter;
   }
 

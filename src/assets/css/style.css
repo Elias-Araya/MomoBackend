@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-body {
+.body-Home {
   font-family: "Open Sans", sans-serif;
   background: #0c0b09;
   color: #fff;
@@ -20,6 +20,8 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", serif;
 }
+
+
 
 /*--------------------------------------------------------------
 # Preloader
@@ -1305,3 +1307,23 @@ section {
   color: #fff;
 }
 
+/*--------------------------------------------------------------
+# Intranet
+--------------------------------------------------------------*/
+
+.body-styling {
+  font-family: "Open Sans", sans-serif;
+  background: #fff !important;
+  color: black;
+}
+.componente-clase {
+  height: 100%; /* Ocupa el 100% de la altura del contenedor padre */
+  display: flex; /* Utiliza el modelo de caja flexible */
+  flex-direction: column; /* Orienta los elementos internos en una columna */
+  min-height: 100vh;
+}
+
+.componente-clase > .d-flex {
+  flex-grow: 1; /* Hace que este elemento crezca para ocupar el espacio restante en la columna */
+  overflow-y: auto; /* Añade desplazamiento vertical si el contenido excede el alto del contenedor */
+}

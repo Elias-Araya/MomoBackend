@@ -1,0 +1,48 @@
+<div class="modal-header bg-transparent">
+    <h5 class="mb-1" id="cardTitle"> Participante</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            (click)="activeModal.close({estado:false})"></button>
+</div>
+<div class="modal-body px-sm-5 mx-50 pb-5">
+
+    <form class="form form-horizontal"  novalidate autocomplete="off">
+        <div class="row">
+            
+            <div class="col-12 col-md-12 form-group mb-1">
+                <label for="nombreProceso" class="form-label-home text-encuesta fw-bold mb-2">NOMBRE</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Ingrese nombre"
+                    required
+                    formControlName="nombre"
+                />
+            </div>
+            <div class="col-12 col-md-12 form-group mb-1">
+                <label for="apellido" class="form-label-home text-encuesta fw-bold mb-2">APELLIDO</label>
+                <input class="form-control" formControlName="apellidos" type="text" required placeholder="Apellido">
+
+            </div>
+            <div class="col-12 col-md-12 form-group mb-1">
+                <label for="rut" class="form-label-home text-encuesta fw-bold mb-2">RUT</label>
+                <input class="form-control" formControlName="rut" type="text" required placeholder="Rut">
+            </div>            
+            <div class="col-12 col-md-12 form-group mb-1">
+                <label for="telefono" class="form-label-home text-encuesta fw-bold mb-2">TELÉFONO</label>
+                <input class="form-control" formControlName="fono" type="text" required placeholder="Teléfono">
+            </div>
+            <div class="col-12 col-md-12 form-group mb-1">
+                <label for="email" class="form-label-home text-encuesta fw-bold mb-2">E-MAIL</label>
+            <input class="form-control" formControlName="mail" type="text" required placeholder="Correo">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12 text-end mt-md-3 mt-1">
+                <a  class="mt-2 btn btnBlue mx-1">Agregar</a>
+                <a (click)="activeModal.close({estado:false})" class="mt-2 btn btn-secondary mx-1">Cancelar</a>
+            </div>
+        </div>
+
+    </form>
+</div>

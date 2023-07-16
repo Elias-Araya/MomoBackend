@@ -18,6 +18,10 @@ import { DatePipe } from '@angular/common';
 import { ReservaComponent } from './component/reserva/reserva.component';
 import { DashhomeComponent } from './component/dashboard/dashhome/dashhome.component';
 import { DashnavbarComponent } from './component/dashboard/dashnavbar/dashnavbar.component';
+import { PerfilUsuarioComponent } from './components/private/perfil-usuario/perfil-usuario.component';
+import { ListarReservasComponent } from './components/private/listar-reservas/listar-reservas.component';
+import { AgregarReservaComponent } from './modals/agregar-reserva/agregar-reserva.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -32,12 +36,16 @@ import { DashnavbarComponent } from './component/dashboard/dashnavbar/dashnavbar
     ReservaComponent,
     DashhomeComponent,
     DashnavbarComponent,
+    PerfilUsuarioComponent,
+    ListarReservasComponent,
+    AgregarReservaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [
     AuthService,
