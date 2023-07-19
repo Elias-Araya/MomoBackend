@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { Pedido } from 'src/app/model/pedido';
 import { PedidoService } from 'src/app/service/pedido.service';
@@ -18,7 +19,8 @@ export class CartComponent implements OnInit {
   constructor(
     private productSvc: ProductService,
     private datePipe: DatePipe,
-    private pedidoSvc: PedidoService
+    private pedidoSvc: PedidoService,
+    private router : Router
   ) {}
 
   ngOnInit(): void {}
@@ -84,6 +86,7 @@ export class CartComponent implements OnInit {
 
           alert(resp.data.mensaje);
           this.productSvc.clearCart();
+          this.router.navigate(['/listaPedidos']);
         },
         error: (err: any) => {
           console.log(err);
