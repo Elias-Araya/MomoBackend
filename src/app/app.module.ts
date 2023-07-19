@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { IntranetComponent } from './intranet/intranet.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './Core/auth-service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -22,6 +23,8 @@ import { PerfilUsuarioComponent } from './components/private/perfil-usuario/perf
 import { ListarReservasComponent } from './components/private/listar-reservas/listar-reservas.component';
 import { AgregarReservaComponent } from './modals/agregar-reserva/agregar-reserva.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
+import { ListarPedidosComponent } from './components/private/listar-pedidos/listar-pedidos.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PerfilUsuarioComponent,
     ListarReservasComponent,
     AgregarReservaComponent,
+    ListarPedidosComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    BrowserAnimationsModule, // Asegúrate de que BrowserAnimationsModule esté importado antes que ToastrModule
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      closeButton: true,
+    }),
+    FormsModule,
   ],
+
   providers: [
     AuthService,
     {

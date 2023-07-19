@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Core/auth-service';
 import { User } from 'src/app/model/user';
 import { ProductService } from 'src/app/service/product.service';
@@ -16,7 +17,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private productSvc: ProductService,
-    private authSvc: AuthService
+    private authSvc: AuthService,
+    private router: Router
   ) {
     this.authSvc.getCurrentUser().subscribe((user) => {
       this.userDetails = user;
@@ -31,5 +33,10 @@ export class NavbarComponent implements OnInit {
 
   onToggleCart() {
     this.viewCart = !this.viewCart;
+  }
+
+  reservas() {
+    console.log('Router');
+    this.router.navigate(['/listaReservas']);
   }
 }

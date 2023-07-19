@@ -13,15 +13,15 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <h3>Momotaro</h3>
+    <form *ngIf="mostrarLogin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h3 style="color: #fff;">Momotaro</h3>
 
-        <label for="username">Usuario</label>
+        <label for="username" style="color: #fff;">Usuario</label>
         <input formControlName="email" [class.is-invalid]="f.email.errors && f.email.touched" type="email" placeholder="Correo electronico" id="email">
         <div class="invalid-feedback">
             El campo email es obligatorio
         </div>
-        <label for="password">Contraseña</label>
+        <label for="password" style="color: #fff;">Contraseña</label>
         <input formControlName="password" [class.is-invalid]="f.password.errors && f.password.touched" type="password" placeholder="Contraseña" id="password">
         <div class="invalid-feedback">
             El campo contraseña es obligatorio
@@ -29,7 +29,37 @@
 
         <button type="submit">Ingresar</button>
 
-        <p>¿No eres miembro? Registrarse</p>
+        <p style="color: #fff;" (click)="mostrarRegistro = true; mostrarLogin = false">¿No eres miembro? Registrarse</p>
+    </form>
+
+    <form *ngIf="mostrarRegistro" [formGroup]="registroForm" (ngSubmit)="onSubmitRegistro()">
+        <!-- Sección de registro -->
+        <h3 style="color: #fff;">Momotaro</h3>
+        
+        <label for="username" style="color: #fff;">Nombre</label>
+        <input formControlName="nombre" [class.is-invalid]="r.nombre.errors && r.nombre.touched" type="text" placeholder="Nombre de Usuario" id="nombre">
+        <div class="invalid-feedback">
+            El campo nombre es obligatorio
+        </div>
+        <label for="username" style="color: #fff;">Usuario</label>
+        <input formControlName="email" [class.is-invalid]="r.email.errors && r.email.touched" type="email" placeholder="Correo electronico" id="email">
+        <div class="invalid-feedback">
+            El campo email es obligatorio
+        </div>
+        <label for="password" style="color: #fff;">Contraseña</label>
+        <input formControlName="password" [class.is-invalid]="r.password.errors && r.password.touched" type="password" placeholder="Contraseña" id="password">
+        <div class="invalid-feedback">
+            El campo contraseña es obligatorio
+        </div>
+        <label for="direccion" style="color: #fff;">Direccion</label>
+        <input formControlName="direccion" [class.is-invalid]="r.direccion.errors && r.direccion.touched" type="text" placeholder="Direccion" id="direccion">
+        <div class="invalid-feedback">
+            El campo direccion es obligatorio
+        </div>
+      
+        <button type="submit">Registrarse</button>
+      
+        <p style="color: #fff;" (click)="mostrarRegistro = false; mostrarLogin = true">Soy miembro</p>
     </form>
 </body>
 </html>

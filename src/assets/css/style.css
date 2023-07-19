@@ -1327,3 +1327,22 @@ section {
   flex-grow: 1; /* Hace que este elemento crezca para ocupar el espacio restante en la columna */
   overflow-y: auto; /* Añade desplazamiento vertical si el contenido excede el alto del contenedor */
 }
+
+.badge-success {
+  background: #00A711
+}
+
+.badge-danger {
+  background: #F92B00
+}
+
+.badge-warning {
+  background: #f9dc00;
+  color: #1d2345!important
+}
+
+.toast-top-center {
+  top: 0;
+  right: 0;
+  width: 100%;
+}

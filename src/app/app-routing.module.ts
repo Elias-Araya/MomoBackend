@@ -6,6 +6,7 @@ import { DashhomeComponent } from './component/dashboard/dashhome/dashhome.compo
 import { AuthguardService } from './Core/authguard.service';
 import { PerfilUsuarioComponent } from './components/private/perfil-usuario/perfil-usuario.component';
 import { ListarReservasComponent } from './components/private/listar-reservas/listar-reservas.component';
+import { ListarPedidosComponent } from './components/private/listar-pedidos/listar-pedidos.component';
 
 const routes: Routes = [
   {
@@ -23,19 +24,18 @@ const routes: Routes = [
   },
   {
     path: 'intranet',
-    component: PerfilUsuarioComponent,
-    canActivate: [AuthguardService],
+    redirectTo: 'listaReservas',
   },
   {
     path: 'listaReservas',
     component: ListarReservasComponent,
     canActivate: [AuthguardService],
   },
-  /*  {
+  {
     path: 'listaPedidos',
-    component: PerfilUsuarioComponent,
+    component: ListarPedidosComponent,
     canActivate: [AuthguardService],
-  }, */
+  },
 ];
 
 @NgModule({

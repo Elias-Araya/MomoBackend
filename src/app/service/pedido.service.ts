@@ -21,4 +21,13 @@ export class PedidoService {
   getProducts(id: any): Observable<PedidoResponse> {
     return this.http.get<PedidoResponse>(`${this.url}/listPedido/${id}`);
   }
+
+  obtenerFactura(id: any): Observable<Blob> {
+    console.log('ID facturaobtener ', id);
+    const headers = { 'Content-Type': 'application/pdf' };
+    return this.http.get(`${this.url}/listFactura/${id}`, {
+      responseType: 'blob',
+      headers,
+    });
+  }
 }

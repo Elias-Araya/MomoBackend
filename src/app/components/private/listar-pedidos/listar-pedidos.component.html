@@ -10,13 +10,13 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" routerLink="/listaReservas">
+                <a class="nav-link " aria-current="page" routerLink="/listaReservas">
                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
                   Reservas
                 </a>
               </li>
               <li>
-                <a  class="nav-link link-dark" routerLink="/listaPedidos">
+                <a  class="nav-link link-dark active">
                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
                   Listar Pedidos
                 </a>
@@ -31,38 +31,32 @@
               <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                 <li><a class="dropdown-item" routerLink="/">Menu</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" (click)="logOut()">Cerrar sesion</a></li>
+                <li><a class="dropdown-item" (click)="logOut()" style="cursor: pointer;">Cerrar sesion</a></li>
               </ul>
             </div>
         </div>
         
       </div>
       <div class="col-12 col-md-10 table-responsive">
-        <h2 style="margin-bottom: 10px; margin-top: 1rem;">Listado de reservas</h2>
+        <h2 style="margin-bottom: 10px;margin-top: 1rem;">Listado de Pedidos</h2>
         <p style="margin-bottom: 20px;"></p>
-        <button class="btn btn-primary" (click)="agregarReserva()">Reservar</button>
         <table class="table">
             <thead>
               <tr>
                 <th scope="col">Fecha</th>
                 <th scope="col">Hora</th>
                 <th scope="col">Estado</th>
-                <th scope="col" style="width: 100px;">Cantidad</th>
-                <th scope="col">Mensaje</th>
-                <th scope="col">Acciones</th>
+                <th scope="col">Factura</th>
               </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let res of reservas;index as i">
+                <tr *ngFor="let res of pedidos;index as i">
                     <td><span>{{res.fecha}}</span></td>
                     <td>{{res.hora}}</td>
-                    <td><span class="badge" [class]="res.estado == 'pendiente' ? 'badge-warning' : res.estado == 'completada' ? 'badge-success': 'badge-danger'">{{res.estado == 'cancelada' ? res.estado: res.estado == 'pendiente' ? res.estado : res.estado}}</span></td>
-                    <td>{{res.cantidad}}</td>
-                    <td>{{res.mensaje}}</td>
+                    <td><span class="badge" [class]="res.estado == 'en proceso' ? 'badge-warning' : res.estado == 'completada' ? 'badge-success': 'badge-danger'">{{res.estado == 'cancelada' ? res.estado: res.estado == 'en proceso' ? res.estado : res.estado}}</span></td>
                     <td>
                       <div class="">
-                          <a role="button" class="mx-2" (click)="editarReserva(res,i)"><img src="../../../../assets/img/editar.svg" alt=""></a>
-                          <a role="button" class="mx-2" (click)="eliminarReserva(res)"><img src="../../../../assets/img/basurero.svg" alt=""></a>
+                          <a role="button" class="mx-2" (click)="generarFactura(res.id_pedido)"><img src="../../../../assets/img/editar.svg" alt=""></a>                          
                       </div>
                   </td>
                 </tr>

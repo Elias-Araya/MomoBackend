@@ -21,8 +21,37 @@ export class ReservaService {
       reservag
     );
   }
-  postReserva(reserva: Reserva): Observable<Reserva> {
-    return this.http.post<Reserva>(`${this.url}/crearReserva`, reserva);
+
+  /*  guardarVariableProc(data: any): Observable<any[]> {
+    const headers = { "Content-Type": "application/json" };
+    const body = JSON.stringify(data);
+    return this.http.post<any>(`${environment.APIS.SERVICIOS}/variables/guardarVarProc`, body, {
+      headers,
+    });
+  } */
+  postReserva(data: any): Observable<any> {
+    const headers = { 'Content-Type': 'application/json' };
+    console.log('DATA DL SERVICE ', data);
+    const body = JSON.stringify(data);
+    return this.http.post<any>(`${this.url}/crearReserva`, body, {
+      headers,
+    });
+  }
+
+  patchReserva(data: any, id: any): Observable<any> {
+    const headers = { 'Content-Type': 'application/json' };
+    console.log('DATA DL SERVICE ', data);
+    const body = JSON.stringify(data);
+    return this.http.patch<any>(`${this.url}/patchReserva/${id}`, body, {
+      headers,
+    });
+  }
+
+  delReserva(id: any): Observable<any> {
+    const headers = { 'Content-Type': 'application/json' };
+    return this.http.patch<any>(`${this.url}/cancelarReserva/${id}`, {
+      headers,
+    });
   }
 
   getReservas(id: any): Observable<ReservaResponse> {

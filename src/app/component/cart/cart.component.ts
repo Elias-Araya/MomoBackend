@@ -13,6 +13,8 @@ import Swal from 'sweetalert2';
 })
 export class CartComponent implements OnInit {
   myCart$ = this.productSvc.mycart$;
+  userId: number = JSON.parse(localStorage.getItem('user') || '{}').id_usuario;
+
   constructor(
     private productSvc: ProductService,
     private datePipe: DatePipe,
@@ -76,9 +78,17 @@ export class CartComponent implements OnInit {
 
       console.log('PEDIDO ', pedido);
 
-      this.pedidoSvc.postPedido(pedido).subscribe((res) => {
-        console.log('Pedido creado correctamente ', res);
-        this.productSvc.clearCart();
+      this.pedidoSvc.postPedido(pedido).subscribe({
+        next: (resp: any) => {
+          console.log('Pedido creado correctamente ', resp);
+
+          alert(resp.data.mensaje);
+          this.productSvc.clearCart();
+        },
+        error: (err: any) => {
+          console.log(err);
+          alert(err);
+        },
       });
     });
   }

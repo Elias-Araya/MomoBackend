@@ -23,5 +23,9 @@
 <div class="cartTotal">
     <p class="cartTotal-total">Total: $ {{totalCart()}} </p>
   </div>
-  <button class="cart-btn" (click)="crearPedido()">Comprar</button>
+  <button class="cart-btn" *ngIf="userId !== 0 && userId !== null && userId !== undefined; else loginBtn" (click)="crearPedido()">Comprar</button>
+    <ng-template #loginBtn>
+    <button class="cart-btn" [routerLink]="['/login']">Login</button>
+    </ng-template>
+
 </div>

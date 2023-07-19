@@ -51,4 +51,14 @@ export class AuthService {
   getCurrentUser(): Observable<User | null> {
     return this.currUser.asObservable();
   }
+
+  register(data: any): Observable<any> {
+    console.log('data del service', data);
+    const headers = { 'Content-Type': 'application/json' };
+    const body = JSON.stringify(data);
+    console.log('body del service', body);
+    return this.http.post<any>(`${environment.api}/register`, body, {
+      headers,
+    });
+  }
 }

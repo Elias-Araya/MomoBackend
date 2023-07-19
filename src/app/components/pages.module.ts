@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PagesComponent } from './pages.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ListarReservasComponent } from './private/listar-reservas/listar-reservas.component';
+import { ListarPedidosComponent } from './private/listar-pedidos/listar-pedidos.component';
 
 const routes: Routes = [
   {
