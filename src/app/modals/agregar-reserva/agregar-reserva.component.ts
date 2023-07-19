@@ -85,20 +85,8 @@ export class AgregarReservaComponent implements OnInit {
       };
       console.log('RES ', objReserva);
       this.reservaSvc.postReserva(objReserva).subscribe({
-        /* console.log('RES ');
-        console.log('RES ', res);
-        if (!res.estado) {
-          alert(res.mensaje);
-          this.activeModal.close({ estado: true, res });
-          return;
-        }
-        this.activeModal.close({ estado: true, res }); */
         next: (resp: any) => {
           console.log(resp);
-          if (!resp.data.estado) {
-            alert(resp.data.mensaje);
-            return;
-          }
           alert(resp.data.mensaje);
           this.activeModal.close({ estado: true, resp });
         },
