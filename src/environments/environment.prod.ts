@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'momonode-production.up.railway.app/api',
+  api: 'https://momonode-production.up.railway.app/',
 };
