@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://momonode-production.up.railway.app/',
+  api: 'https://momonode-production.up.railway.app/api',
 };
 
 /*
